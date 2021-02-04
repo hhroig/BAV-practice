@@ -1,0 +1,27 @@
+---
+title: "Big Analytics V: Programación en **R**"
+author: "Harold A. Hernández-Roig"
+date: "5-6 Febrero 2021"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+
+# Introducción
+
+Estos son los ejercicios del curso :)
+
+Recuerda que tienes disponibles las diapositivas en: <https://hhroig.github.io/BAV-slides/>
+
+## Referencias
+
+Chang, Winston. 2012. R Graphics Cookbook: Practical Recipes for Visualizing Data. O'Reilly Media. (Versión parcial online libre: <http://www.cookbook-r.com/Graphs/>).
+
+Wickham, H. 2015. Advanced R. Chapman & Hall. (Versión online libre: <http://adv-r.had.co.nz/>)
+
+Wickham, Hadley, and Garrett Grolemund. 2017. R for Data Science: Import, Tidy, Transform, Visualize, and Model Data. 1st ed. O’Reilly Media. (Versión online libre: [r4ds](https://r4ds.had.co.nz/index.html)).
+
+
+<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->

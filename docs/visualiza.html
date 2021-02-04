@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Visualización | Big Analytics V: Programación en R</title>
+  <meta name="description" content="2 Visualización | Big Analytics V: Programación en R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Visualización | Big Analytics V: Programación en R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Visualización | Big Analytics V: Programación en R" />
+  
+  
+  
+
+<meta name="author" content="Harold A. Hernández-Roig" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="transforma.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i><b>1.1</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="visualiza.html"><a href="visualiza.html"><i class="fa fa-check"></i><b>2</b> Visualización</a><ul>
+<li class="chapter" data-level="2.1" data-path="visualiza.html"><a href="visualiza.html#paquetes"><i class="fa fa-check"></i><b>2.1</b> Paquetes</a></li>
+<li class="chapter" data-level="2.2" data-path="visualiza.html"><a href="visualiza.html#datos"><i class="fa fa-check"></i><b>2.2</b> Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="visualiza.html"><a href="visualiza.html#visualización-con-r-base"><i class="fa fa-check"></i><b>2.3</b> Visualización con R base</a></li>
+<li class="chapter" data-level="2.4" data-path="visualiza.html"><a href="visualiza.html#visualización-con-ggplot2"><i class="fa fa-check"></i><b>2.4</b> Visualización con <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.4.1" data-path="visualiza.html"><a href="visualiza.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
+<li class="chapter" data-level="2.4.2" data-path="visualiza.html"><a href="visualiza.html#cambiando-la-estética"><i class="fa fa-check"></i><b>2.4.2</b> Cambiando la <em>estética</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="visualiza.html"><a href="visualiza.html#las-facetas"><i class="fa fa-check"></i><b>2.4.3</b> Las <em>facetas</em></a></li>
+<li class="chapter" data-level="2.4.4" data-path="visualiza.html"><a href="visualiza.html#objetos-geométricos-geoms"><i class="fa fa-check"></i><b>2.4.4</b> Objetos geométricos <strong>geoms</strong></a></li>
+<li class="chapter" data-level="2.4.5" data-path="visualiza.html"><a href="visualiza.html#transformaciones-estadísticas"><i class="fa fa-check"></i><b>2.4.5</b> Transformaciones estadísticas</a></li>
+<li class="chapter" data-level="2.4.6" data-path="visualiza.html"><a href="visualiza.html#ajuste-de-posición-y-sistemas-de-coordenadas"><i class="fa fa-check"></i><b>2.4.6</b> Ajuste de posición y sistemas de coordenadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="visualiza.html"><a href="visualiza.html#resumen"><i class="fa fa-check"></i><b>2.5</b> Resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="transforma.html"><a href="transforma.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a><ul>
+<li class="chapter" data-level="3.1" data-path="transforma.html"><a href="transforma.html#datos-1"><i class="fa fa-check"></i><b>3.1</b> Datos</a></li>
+<li class="chapter" data-level="3.2" data-path="transforma.html"><a href="transforma.html#el-paquete-dplyr"><i class="fa fa-check"></i><b>3.2</b> El paquete <code>dplyr</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="transforma.html"><a href="transforma.html#filtrar-filas"><i class="fa fa-check"></i><b>3.2.1</b> Filtrar filas</a></li>
+<li class="chapter" data-level="3.2.2" data-path="transforma.html"><a href="transforma.html#rerodenar-filas"><i class="fa fa-check"></i><b>3.2.2</b> Rerodenar filas</a></li>
+<li class="chapter" data-level="3.2.3" data-path="transforma.html"><a href="transforma.html#seleccionar-variables"><i class="fa fa-check"></i><b>3.2.3</b> Seleccionar variables</a></li>
+<li class="chapter" data-level="3.2.4" data-path="transforma.html"><a href="transforma.html#crear-nuevas-variables"><i class="fa fa-check"></i><b>3.2.4</b> Crear nuevas variables</a></li>
+<li class="chapter" data-level="3.2.5" data-path="transforma.html"><a href="transforma.html#resumir-variables"><i class="fa fa-check"></i><b>3.2.5</b> Resumir variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>4</b> Tidy</a><ul>
+<li class="chapter" data-level="4.1" data-path="tidy.html"><a href="tidy.html#datos-2"><i class="fa fa-check"></i><b>4.1</b> Datos</a></li>
+<li class="chapter" data-level="4.2" data-path="tidy.html"><a href="tidy.html#pivotar"><i class="fa fa-check"></i><b>4.2</b> Pivotar</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="tidy.html"><a href="tidy.html#pivot-longer"><i class="fa fa-check"></i><b>4.2.1</b> <em>Pivot longer</em></a></li>
+<li class="chapter" data-level="4.2.2" data-path="tidy.html"><a href="tidy.html#pivot-wider"><i class="fa fa-check"></i><b>4.2.2</b> <em>Pivot wider</em></a></li>
+<li class="chapter" data-level="4.2.3" data-path="tidy.html"><a href="tidy.html#ejercicios-13"><i class="fa fa-check"></i><b>4.2.3</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="tidy.html"><a href="tidy.html#separar-y-unir"><i class="fa fa-check"></i><b>4.3</b> Separar y unir</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="tidy.html"><a href="tidy.html#ejercicios-14"><i class="fa fa-check"></i><b>4.3.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="tidy.html"><a href="tidy.html#lidiar-con-los-datos-faltantes"><i class="fa fa-check"></i><b>4.4</b> Lidiar con los datos faltantes</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="tidy.html"><a href="tidy.html#ejercicios-15"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="tidy.html"><a href="tidy.html#case-study"><i class="fa fa-check"></i><b>4.5</b> Case study</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="tidy.html"><a href="tidy.html#ejercicios-16"><i class="fa fa-check"></i><b>4.5.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="relational.html"><a href="relational.html"><i class="fa fa-check"></i><b>5</b> Relational Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="relational.html"><a href="relational.html#datos-3"><i class="fa fa-check"></i><b>5.1</b> Datos</a></li>
+<li class="chapter" data-level="5.2" data-path="relational.html"><a href="relational.html#keys"><i class="fa fa-check"></i><b>5.2</b> Keys</a></li>
+<li class="chapter" data-level="5.3" data-path="relational.html"><a href="relational.html#mutating-joins"><i class="fa fa-check"></i><b>5.3</b> Mutating Joins</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="relational.html"><a href="relational.html#ejercicios-17"><i class="fa fa-check"></i><b>5.3.1</b> Ejercicios:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="relational.html"><a href="relational.html#filtering-joins"><i class="fa fa-check"></i><b>5.4</b> Filtering Joins</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="relational.html"><a href="relational.html#ejercicios-18"><i class="fa fa-check"></i><b>5.4.1</b> Ejercicios</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Big Analytics V: Programación en <strong>R</strong></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualiza" class="section level1">
+<h1><span class="header-section-number">2</span> Visualización</h1>
+<p>Recuerda, trabajaremos en un <em>script</em> de <strong>R</strong>, no en la <em>Consola</em>. Además lo haremos de forma segura y organizada creando un <em>RStudio Project</em>:</p>
+<ul>
+<li>Ir a <em>File &gt; New Project…</em></li>
+<li>Podemos crear un nuevo directorio donde guardar nuestros scripts, figuras, datos, etc.;</li>
+<li>Por ejemplo, en el Escritorio creamos el proyecto “<em>intro_R</em>”;</li>
+<li>Siempre que trabajemos en este proyecto, “<em>intro_R</em>” será nuestro <em>Working Directory</em></li>
+<li>Ahora, creamos un nuevo script “<em>plots_mpg.R</em>” y a programar!</li>
+</ul>
+<div id="paquetes" class="section level2">
+<h2><span class="header-section-number">2.1</span> Paquetes</h2>
+<p>Necesitamos cargar el paquete <code>tidyverse</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualiza.html#cb1-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.4     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>Notamos que este comando carga a su vez una serie de paquetes, no solo uno. Los <em>conflictos</em> son importantes a tener en cuenta porque indican que dos paquetes diferentes comparten el mismo nombre para una función. Por ejemplo, la función <code>select</code> está repetida tanto en el paquete <code>dplyr</code> como en el paquete <code>MASS</code>. Si cargamos ambos paquetes en nuestro script, entonces para evitar conflictos debemos especificar <code>dplyr::select(...)</code> o <code>MASS::select(...)</code>.</p>
+</div>
+<div id="datos" class="section level2">
+<h2><span class="header-section-number">2.2</span> Datos</h2>
+<p>Vamos a trabajar con los <strong>data frames</strong> <code>mpg</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualiza.html#cb5-1"></a>mpg</span></code></pre></div>
+<pre><code>## # A tibble: 234 x 11
+##    manufacturer model    displ  year   cyl trans   drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4         1.8  1999     4 auto(l~ f        18    29 p     comp~
+##  2 audi         a4         1.8  1999     4 manual~ f        21    29 p     comp~
+##  3 audi         a4         2    2008     4 manual~ f        20    31 p     comp~
+##  4 audi         a4         2    2008     4 auto(a~ f        21    30 p     comp~
+##  5 audi         a4         2.8  1999     6 auto(l~ f        16    26 p     comp~
+##  6 audi         a4         2.8  1999     6 manual~ f        18    26 p     comp~
+##  7 audi         a4         3.1  2008     6 auto(a~ f        18    27 p     comp~
+##  8 audi         a4 quat~   1.8  1999     4 manual~ 4        18    26 p     comp~
+##  9 audi         a4 quat~   1.8  1999     4 auto(l~ 4        16    25 p     comp~
+## 10 audi         a4 quat~   2    2008     4 manual~ 4        20    28 p     comp~
+## # ... with 224 more rows</code></pre>
+<p>y <code>diamonds</code> de <code>ggplot2</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualiza.html#cb7-1"></a><span class="kw">head</span>(diamonds, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 10
+##    carat cut       color clarity depth table price     x     y     z
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;ord&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 0.23  Ideal     E     SI2      61.5    55   326  3.95  3.98  2.43
+##  2 0.21  Premium   E     SI1      59.8    61   326  3.89  3.84  2.31
+##  3 0.23  Good      E     VS1      56.9    65   327  4.05  4.07  2.31
+##  4 0.290 Premium   I     VS2      62.4    58   334  4.2   4.23  2.63
+##  5 0.31  Good      J     SI2      63.3    58   335  4.34  4.35  2.75
+##  6 0.24  Very Good J     VVS2     62.8    57   336  3.94  3.96  2.48
+##  7 0.24  Very Good I     VVS1     62.3    57   336  3.95  3.98  2.47
+##  8 0.26  Very Good H     SI1      61.9    55   337  4.07  4.11  2.53
+##  9 0.22  Fair      E     VS2      65.1    61   337  3.87  3.78  2.49
+## 10 0.23  Very Good H     VS1      59.4    61   338  4     4.05  2.39</code></pre>
+<p>Un <em>data frame</em> es una colección rectangular de datos donde las variables están organizadas por columnas y las observaciones por filas. Si ejecutamos <code>?mpg</code> (o <code>?diamonds</code>) el panel de Ayuda brinda una descripción de los datos.</p>
+</div>
+<div id="visualización-con-r-base" class="section level2">
+<h2><span class="header-section-number">2.3</span> Visualización con R base</h2>
+<p>Nos vamos a concentrar en las variables <code>displ</code> y <code>hwy</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="visualiza.html#cb9-1"></a><span class="kw">plot</span>(mpg<span class="op">$</span>displ, mpg<span class="op">$</span>hwy)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Esto es un <em>diagrama de dispersión</em>. Si hacemos <code>?plot</code> vemos las características que podemos variar. Por ejemplo:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualiza.html#cb10-1"></a><span class="kw">plot</span>(mpg<span class="op">$</span>displ, mpg<span class="op">$</span>hwy,</span>
+<span id="cb10-2"><a href="visualiza.html#cb10-2"></a>     <span class="dt">main =</span> <span class="st">&quot;Consumo de combustible&quot;</span>,</span>
+<span id="cb10-3"><a href="visualiza.html#cb10-3"></a>     <span class="dt">xlab =</span> <span class="st">&quot;Cilindrada (litros)&quot;</span>,</span>
+<span id="cb10-4"><a href="visualiza.html#cb10-4"></a>     <span class="dt">ylab =</span> <span class="st">&quot;Consumo (millas por galón)&quot;</span>, </span>
+<span id="cb10-5"><a href="visualiza.html#cb10-5"></a>     <span class="dt">pch =</span> <span class="dv">5</span>,</span>
+<span id="cb10-6"><a href="visualiza.html#cb10-6"></a>     <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="visualización-con-ggplot2" class="section level2">
+<h2><span class="header-section-number">2.4</span> Visualización con <code>ggplot2</code></h2>
+<p>El modelo básico para crear un <em>ggplot</em> tiene la forma:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualiza.html#cb11-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb11-2"><a href="visualiza.html#cb11-2"></a><span class="st">  </span><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>))</span></code></pre></div>
+<p>Así que para emular el gráfico previo hacemos:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="visualiza.html#cb12-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb12-2"><a href="visualiza.html#cb12-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div id="ejercicios" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Ejercicios</h3>
+<ol style="list-style-type: decimal">
+<li>Hacer el diagrama de dispersión de <code>hwy</code> vs. <code>cyl</code> ¿qué crees del gráfico obtenido?</li>
+<li>¿Qué pasa si hacemos el diagrama de <code>class</code> vs. <code>drv</code>? ¿por qué crees que hay menos puntos?</li>
+</ol>
+</div>
+<div id="cambiando-la-estética" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Cambiando la <em>estética</em></h3>
+<p>Habréis notado la instrucción <code>aes( x = ..., y = ...)</code>. Si vamos a la ayuda (presionando <code>F1</code> una vez que el cursos está sobre la función deseada) notaremos que corresponde al <strong>aesthetic mapping</strong> de <code>ggplot</code>. Además de definir qué va en el <em>eje x</em> y qué va en el <em>eje y</em>, podemos incluir más información de los datos en nuestro plot, por ejemplo, definiendo un color, forma o tamaño diferente en función del tipo de vehículo (variable <code>class</code>). Veamos un ejemplo, asignando un color diferente para cada tipo de vehículo:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="visualiza.html#cb13-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-2"><a href="visualiza.html#cb13-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> class))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Notar que para fijar las características de forma manual debemos escribimos la instrucción fuera de <code>aes()</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="visualiza.html#cb14-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb14-2"><a href="visualiza.html#cb14-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div id="ejercicios-1" class="section level4">
+<h4><span class="header-section-number">2.4.2.1</span> Ejercicios</h4>
+<ol start="3" style="list-style-type: decimal">
+<li>¿Qué pasa si en lugar de <code>color</code>, usamos <code>alpha</code>, <code>shape</code> o <code>size</code>?</li>
+<li>¿Qué pasa al asignar una variable continua (e.g. <code>cty</code>) a <code>color</code>, <code>size</code> o <code>shape</code>? Hint: para el caso de <code>shape</code> visita <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point-1" class="uri">https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point-1</a>.</li>
+<li>¿Qué pasa si asignamos la misma variable continua (e.g. <code>cty</code>) a <code>color</code> y <code>size</code> a la vez?</li>
+<li>Visita la ayuda <code>?geom_point</code> (también <a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="uri">https://ggplot2.tidyverse.org/reference/geom_point.html</a>) y explora los diferentes <em>aesthetic</em> que puedes especificar.</li>
+<li>Agrega al <em>aesthetic</em> de tu plot la expresión <code>colour = displ &lt; 5</code>. Esto ya no es una variable si no una expresión que devuelve un booleano. ¿Puedes explicar el plot resultante?</li>
+</ol>
+</div>
+</div>
+<div id="las-facetas" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Las <em>facetas</em></h3>
+<p>Habréis notado que en la sección anterior estábamos representando <em>3 dimensiones</em> (3D) en el plano (que tiene solo 2D). Con las facetas (<strong>facets</strong>) particionamos un gráfico de acuerdo a cierta (o ciertas) variables.</p>
+<p>Para crear facetas de acuerdo a una única variable usamos <code>facet_wrap()</code>. El primer argumento será una “fórmula” de <strong>R</strong>. Las fórmulas son una estructura del lenguaje, formadas con el símbolo <code>~</code> y que permite relacionar variables o transformaciones de variables (i.e. sumas, logaritmos o la identidad). En este caso, debemos tener cuidado de pasar a <code>facet_wrap()</code> una variable discreta:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="visualiza.html#cb15-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb15-2"><a href="visualiza.html#cb15-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb15-3"><a href="visualiza.html#cb15-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Si queremos particionar nuestro gráfico de acuerdo a una combinación de variables usamos <code>facet_grid</code>. Por ejemplo:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="visualiza.html#cb16-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-2"><a href="visualiza.html#cb16-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-3"><a href="visualiza.html#cb16-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(drv <span class="op">~</span><span class="st"> </span>cyl)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<div id="ejercicios-2" class="section level4">
+<h4><span class="header-section-number">2.4.3.1</span> Ejercicios</h4>
+<ol start="8" style="list-style-type: decimal">
+<li>¿Qué hemos hecho en el gráfico de arriba? ¿Por qué hay facetas vacías? Hint: intenta relacionar tus impresiones con el siguiente gráfico:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="visualiza.html#cb17-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb17-2"><a href="visualiza.html#cb17-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cyl)) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Explica el uso del punto <code>.</code> en los siguientes plots:</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="visualiza.html#cb18-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb18-2"><a href="visualiza.html#cb18-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span></span>
+<span id="cb18-3"><a href="visualiza.html#cb18-3"></a><span class="st">  </span><span class="kw">facet_grid</span>(drv <span class="op">~</span><span class="st"> </span>.)</span>
+<span id="cb18-4"><a href="visualiza.html#cb18-4"></a></span>
+<span id="cb18-5"><a href="visualiza.html#cb18-5"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb18-6"><a href="visualiza.html#cb18-6"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span></span>
+<span id="cb18-7"><a href="visualiza.html#cb18-7"></a><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>cyl)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-13-2.png" width="50%" /></p>
+<ol start="10" style="list-style-type: decimal">
+<li><p>¿Para qué sirven los argumentos <code>nrow</code> y <code>ncol</code>? ¿En qué tipo de facetas se pueden usar? Explora la ayuda <code>facet_wrap</code> y <code>facet_grid</code> o el manual en <a href="https://ggplot2.tidyverse.org/reference/index.html" class="uri">https://ggplot2.tidyverse.org/reference/index.html</a>.</p></li>
+<li><p>¿Qué pasa si usamos una variable continua para hacer facetas? Intenta hacerlo con <code>cty</code>.</p></li>
+</ol>
+</div>
+</div>
+<div id="objetos-geométricos-geoms" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Objetos geométricos <strong>geoms</strong></h3>
+<p>Hasta ahora solo hemos hecho diagramas de dispersión usando <code>geom_point</code>. En <code>ggplot</code> es muy sencillo cambiar el tipo de gráfico cambiando a otro <strong>geom</strong> (<em>objeto geométrico</em>). Aún así, los argumentos de cada <strong>geom</strong> pueden variar un poco (parecido a lo que pasa entre <code>facet_wrap</code> y <code>facet_grid</code>). Por ejemplo, si en lugar de un diagrama de dispersión quisiéramos un gráfico de líneas:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="visualiza.html#cb19-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb19-2"><a href="visualiza.html#cb19-2"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Este gráfico no es muy útil (además de ser estéticamente horrible). Sin embargo tanto este como el diagrama de dispersión parecen indicar que a mayor cilindrada (<code>displ</code>) mayor consumo (menor cantidad de millas autopista por galón <code>hwy</code>), excepto para algunos vehículos de gran cilindrada (los puntos más a la derecha). Sin dudas, debe haber una “curva suave” que pueda describir esta relación entre <code>hwy</code> y <code>displ</code>… así que es un buen momento para echarle un ojo a “la chuleta” (<strong>Cheatsheet</strong>) del paquete <code>ggplot</code>. Te adelanto que la curva se puede estimar con <code>geom_smooth</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="visualiza.html#cb20-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb20-2"><a href="visualiza.html#cb20-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> class), <span class="dt">alpha =</span> <span class="fl">0.4</span>, <span class="dt">size =</span> <span class="dv">3</span>)  <span class="op">+</span></span>
+<span id="cb20-3"><a href="visualiza.html#cb20-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span></span>
+<span id="cb20-4"><a href="visualiza.html#cb20-4"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Cilindrada (litros)&#39;</span>) <span class="op">+</span></span>
+<span id="cb20-5"><a href="visualiza.html#cb20-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Consumo (millas por galón)&#39;</span>) <span class="op">+</span></span>
+<span id="cb20-6"><a href="visualiza.html#cb20-6"></a><span class="st">  </span><span class="kw">theme_light</span>()</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>En este caso ya hemos añadido dos diferentes <strong>geoms</strong> a un mismo plot, además hemos modificado los nombres de los ejes, hemos modificado un poco las estética de los puntos y hemos usado un “tema” (<code>theme</code>) con fondo blanco. Aún así, los tipos de vehículos son muchos y es complicado establecer una relación entre el tipo de vehículo y la monotonía de la curva suave. Vamos a ver qué pasa si hacemos el “suavizado” según el tipo de tracción (<code>drv</code>):</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="visualiza.html#cb22-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb22-2"><a href="visualiza.html#cb22-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">linetype =</span> drv))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Fíjate que ahora estamos describiendo la relación entre cilindrada y consumo 3 curvas suaves que corresponden al tipo de tracción (<em>r</em>: <em>rear</em>/trasera, <em>f</em>: <em>front</em>/delantera y <em>4</em>: ambos ejes delantero y trasero). Hemos usado <code>linetype</code> para diferenciar la estética de las 3 clases que describe <code>drv</code>… si tienes dudas consulta los argumentos estéticos de <code>geom_smooth</code> <a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html#aesthetics" class="uri">https://ggplot2.tidyverse.org/reference/geom_smooth.html#aesthetics</a>. Si usamos, por ejemplo, <code>group</code> o <code>color</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="visualiza.html#cb24-1"></a><span class="co"># suavizar de acuerdo a los niveles de &#39;drv&#39;</span></span>
+<span id="cb24-2"><a href="visualiza.html#cb24-2"></a><span class="co"># agrupa, pero no diferencia con colores o tipos de línea</span></span>
+<span id="cb24-3"><a href="visualiza.html#cb24-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb24-4"><a href="visualiza.html#cb24-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">group =</span> drv))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="visualiza.html#cb26-1"></a><span class="co"># suavizar de acuerdo a los niveles de &#39;drv&#39;</span></span>
+<span id="cb26-2"><a href="visualiza.html#cb26-2"></a><span class="co"># agrupa y diferencia con colores</span></span>
+<span id="cb26-3"><a href="visualiza.html#cb26-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span></span>
+<span id="cb26-4"><a href="visualiza.html#cb26-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(</span>
+<span id="cb26-5"><a href="visualiza.html#cb26-5"></a>    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> drv),</span>
+<span id="cb26-6"><a href="visualiza.html#cb26-6"></a>    <span class="dt">show.legend =</span> <span class="ot">FALSE</span></span>
+<span id="cb26-7"><a href="visualiza.html#cb26-7"></a>  )</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-17-2.png" width="50%" /></p>
+<p>Podemos además ir un poco más lejos e intentar hacer el suavizado (estimar la curva suave) para un tipo de vehículo determinado (de acuerdo a los niveles de <code>class</code>). Por ejemplo, en el caso de vehículos <code>suv</code>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="visualiza.html#cb28-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb28-2"><a href="visualiza.html#cb28-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> class)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb28-3"><a href="visualiza.html#cb28-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">data =</span> <span class="kw">filter</span>(mpg, class <span class="op">==</span><span class="st"> &quot;suv&quot;</span>), </span>
+<span id="cb28-4"><a href="visualiza.html#cb28-4"></a>              <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> class), </span>
+<span id="cb28-5"><a href="visualiza.html#cb28-5"></a>              <span class="dt">se =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div id="ejercicios-3" class="section level4">
+<h4><span class="header-section-number">2.4.4.1</span> Ejercicios</h4>
+<ol start="12" style="list-style-type: decimal">
+<li>¿Cuál será la diferencia entre estos dos gráficos?</li>
+</ol>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="visualiza.html#cb30-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb30-2"><a href="visualiza.html#cb30-2"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb30-3"><a href="visualiza.html#cb30-3"></a><span class="st">  </span><span class="kw">geom_smooth</span>()</span>
+<span id="cb30-4"><a href="visualiza.html#cb30-4"></a></span>
+<span id="cb30-5"><a href="visualiza.html#cb30-5"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb30-6"><a href="visualiza.html#cb30-6"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb30-7"><a href="visualiza.html#cb30-7"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</span></code></pre></div>
+<p>De acuerdo a tus impresiones, reescribe el código que hace el suavizado solo para los vehículos <code>suv</code>. El objetivo es lograr un código legible y sin argumentos innecesarios. ¿Qué produce la instrucción <code>se = FALSE</code>?</p>
+<ol start="13" style="list-style-type: decimal">
+<li>Reproducir los siguientes gráficos:</li>
+</ol>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-2.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-3.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-4.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-5.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-6.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-21-7.png" width="50%" /></p>
+</div>
+</div>
+<div id="transformaciones-estadísticas" class="section level3">
+<h3><span class="header-section-number">2.4.5</span> Transformaciones estadísticas</h3>
+<p>En la sección anterior <code>ggplot</code> hizo algunas transformaciones por nosotros. Está claro que la “curva suave” con la que hemos trabajado no forma parte de <code>mpg</code>, sino que es una estimación a partir de una <a href="https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal">regresión lineal</a>, <a href="https://es.wikipedia.org/wiki/Regresi%C3%B3n_local">local</a> (loess) o un <a href="https://es.wikipedia.org/wiki/Spline">spline</a>. De hecho, muchos de los <strong>geoms</strong> de <code>ggplot</code> hacen transformaciones estadísticas por nosotros:</p>
+<ul>
+<li>los gráficos de barras, histogramas y polígonos de frecuencia construyen intervalos (<em>bins</em>) y cuentan el número de observaciones que “caen” dentro de estos;</li>
+<li>los <em>smoothers</em> (¿suavizadores? :| ) como ya hemos visto;</li>
+<li>los diagramas de cajas (<em>boxplots</em>) calculan estadísticos importantes para entender la distribución de cierta variable continua (mediana, media, cuartiles, <em>outliers</em>).</li>
+</ul>
+<p>Vamos a hacer algunos diagramas de barras con los datos <code>diamonds</code>:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="visualiza.html#cb31-1"></a><span class="co"># geom_bar tiene a stat_count como el &quot;stat&quot; por defecto: </span></span>
+<span id="cb31-2"><a href="visualiza.html#cb31-2"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb31-3"><a href="visualiza.html#cb31-3"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut))</span>
+<span id="cb31-4"><a href="visualiza.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="visualiza.html#cb31-5"></a><span class="co"># stat_count tiene a geom_bar como el &quot;geom&quot; por defecto:</span></span>
+<span id="cb31-6"><a href="visualiza.html#cb31-6"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb31-7"><a href="visualiza.html#cb31-7"></a><span class="st">  </span><span class="kw">stat_count</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-22-2.png" width="50%" /></p>
+<p>También lo podemos hacer “a mano” si contamos los elementos de cada clase y cambiamos el <strong>stat</strong> por defecto de <code>geom_bar</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="visualiza.html#cb32-1"></a><span class="kw">summary</span>(diamonds<span class="op">$</span>cut)</span></code></pre></div>
+<pre><code>##      Fair      Good Very Good   Premium     Ideal 
+##      1610      4906     12082     13791     21551</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="visualiza.html#cb34-1"></a>mi_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>( <span class="dt">cut =</span> <span class="kw">c</span>(<span class="st">&quot;Fair&quot;</span>, <span class="st">&quot;Good&quot;</span>, <span class="st">&quot;Very Good&quot;</span>, <span class="st">&quot;Premium&quot;</span>, <span class="st">&quot;Ideal&quot;</span>),</span>
+<span id="cb34-2"><a href="visualiza.html#cb34-2"></a>                       <span class="dt">freq =</span> <span class="kw">c</span>(<span class="dv">1610</span>, <span class="dv">4906</span>, <span class="dv">12082</span>, <span class="dv">13791</span>, <span class="dv">21551</span> ))</span>
+<span id="cb34-3"><a href="visualiza.html#cb34-3"></a></span>
+<span id="cb34-4"><a href="visualiza.html#cb34-4"></a><span class="kw">print</span>(mi_df)</span></code></pre></div>
+<pre><code>##         cut  freq
+## 1      Fair  1610
+## 2      Good  4906
+## 3 Very Good 12082
+## 4   Premium 13791
+## 5     Ideal 21551</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="visualiza.html#cb36-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> mi_df) <span class="op">+</span></span>
+<span id="cb36-2"><a href="visualiza.html#cb36-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> freq), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>Notarás que son los mismos diagramas de barras, salvo por el orden de los cortes (ahora están ordenados alfabéticamente). Esto se podría arreglar convirtiendo <code>mi_df$cut</code> a clase <code>factor</code> y reordenando los niveles… pero ya lo veremos luego :)</p>
+<p>Podemos también añadir color, modificar la transparencia de las barras, etc.:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="visualiza.html#cb37-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb37-2"><a href="visualiza.html#cb37-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">colour =</span> cut), <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb37-3"><a href="visualiza.html#cb37-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb37-4"><a href="visualiza.html#cb37-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> cut))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-24-2.png" width="50%" /></p>
+<div id="ejercicios-4" class="section level4">
+<h4><span class="header-section-number">2.4.5.1</span> Ejercicios</h4>
+<ol start="14" style="list-style-type: decimal">
+<li>¿Qué hace el siguiente código?</li>
+</ol>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="visualiza.html#cb38-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb38-2"><a href="visualiza.html#cb38-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> <span class="kw">stat</span>(prop), <span class="dt">group =</span> <span class="dv">1</span>))</span></code></pre></div>
+<ol start="15" style="list-style-type: decimal">
+<li>Interpreta los resultados de ejecutar:</li>
+</ol>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="visualiza.html#cb39-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb39-2"><a href="visualiza.html#cb39-2"></a><span class="st">  </span><span class="kw">stat_summary</span>(</span>
+<span id="cb39-3"><a href="visualiza.html#cb39-3"></a>    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> depth),</span>
+<span id="cb39-4"><a href="visualiza.html#cb39-4"></a>    <span class="dt">fun.min =</span> min,</span>
+<span id="cb39-5"><a href="visualiza.html#cb39-5"></a>    <span class="dt">fun.max =</span> max,</span>
+<span id="cb39-6"><a href="visualiza.html#cb39-6"></a>    <span class="dt">fun =</span> median</span>
+<span id="cb39-7"><a href="visualiza.html#cb39-7"></a>  )</span></code></pre></div>
+<ol start="16" style="list-style-type: decimal">
+<li>¿Cuál es la diferencia entre <code>geom_bar</code> y <code>geom_col</code>? ¿Qué datos necesitaríamos introducir en cada función para obtener el mismo diagrama de barras en cada caso?</li>
+</ol>
+</div>
+</div>
+<div id="ajuste-de-posición-y-sistemas-de-coordenadas" class="section level3">
+<h3><span class="header-section-number">2.4.6</span> Ajuste de posición y sistemas de coordenadas</h3>
+<p>Los diagramas de barras también permiten añadir una tercera variable (además de la frecuencia en el <em>eje y</em> y la clase correspondiente en el <em>eje x</em>), como ya hemos hecho con los diagramas de dispersión. Por ejemplo si utilizamos la variable <code>clarity</code> para “rellenar” las barras:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="visualiza.html#cb40-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb40-2"><a href="visualiza.html#cb40-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> clarity))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>Si variamos el parámetro de posición (<strong>position adjustment</strong>) podemos hacer más fácil la comparación de acuerdo a la claridad de los diamantes (variable <code>clarity</code>):</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="visualiza.html#cb41-1"></a><span class="co"># todas las barras iguales para comparar proporciones de claridad</span></span>
+<span id="cb41-2"><a href="visualiza.html#cb41-2"></a><span class="co"># de acuerdo al tipo de corte:</span></span>
+<span id="cb41-3"><a href="visualiza.html#cb41-3"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb41-4"><a href="visualiza.html#cb41-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> clarity), <span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)</span>
+<span id="cb41-5"><a href="visualiza.html#cb41-5"></a></span>
+<span id="cb41-6"><a href="visualiza.html#cb41-6"></a><span class="co"># frecuencias por tipo de corte y claridad:</span></span>
+<span id="cb41-7"><a href="visualiza.html#cb41-7"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb41-8"><a href="visualiza.html#cb41-8"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> clarity), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-28-2.png" width="50%" /></p>
+<p>Hay otro tipo de ajuste (<code>position = "jitter"</code>) que no tiene utilidad para los diagramas de barra, pero sí para los diagramas de dispersión y de cajas (<em>boxplots</em>). Por ejemplo, en el caso de los datos <code>mpg</code> es muy difícil notar que muchos de los puntos del diagrama <code>hwy vs. displ</code> están superpuestos. Con <code>jitter</code> podemos añadir un poco de “ruido” a las observaciones para que así los puntos del diagrama aparezcan más dispersos y así tener una idea más acertada del tamaño muestral:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="visualiza.html#cb42-1"></a>p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) </span>
+<span id="cb42-2"><a href="visualiza.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="visualiza.html#cb42-3"></a><span class="co"># con algo transparencia los superpuestos producen un color oscuro:</span></span>
+<span id="cb42-4"><a href="visualiza.html#cb42-4"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">size =</span> <span class="dv">3</span>)</span>
+<span id="cb42-5"><a href="visualiza.html#cb42-5"></a></span>
+<span id="cb42-6"><a href="visualiza.html#cb42-6"></a><span class="co"># dispersamos con &quot;jitter&quot;:</span></span>
+<span id="cb42-7"><a href="visualiza.html#cb42-7"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">position =</span> <span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="50%" /><img src="_main_files/figure-html/unnamed-chunk-29-2.png" width="50%" /></p>
+<p>Otra opción es usar <code>geom_count</code> para “contar” los puntos solapados:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="visualiza.html#cb43-1"></a>p <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb43-2"><a href="visualiza.html#cb43-2"></a><span class="st">  </span><span class="kw">geom_count</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="50%" /></p>
+<div id="ejercicios-5" class="section level4">
+<h4><span class="header-section-number">2.4.6.1</span> Ejercicios</h4>
+<ol start="17" style="list-style-type: decimal">
+<li>Un tercer parámetro de posición para los diagramas de barras es <code>position = "identity"</code>. Modifica el ajuste de posición del siguiente código y compara la idoneidad del mismo con el obtenido para <code>position = "dodge"</code>. Hint: considera añadir algo de transparencia (e.g. <code>alpha = 0.5</code>) o quitar el relleno por completo (i.e. <code>fill = NA</code>).</li>
+</ol>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="visualiza.html#cb44-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb44-2"><a href="visualiza.html#cb44-2"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> clarity))</span></code></pre></div>
+<ol start="18" style="list-style-type: decimal">
+<li>Los diagramas de cajas se logran con <code>geom_boxplot</code>. Este tipo de gráficos permiten comparar las distribuciones de una variable continua para diferentes grupos o clases. Por ejemplo, para los datos <code>mpg</code> podemos comparar la distribución del consumo de acuerdo al tipo de tracción:</li>
+</ol>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="visualiza.html#cb45-1"></a>p_box &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> hwy)) <span class="op">+</span></span>
+<span id="cb45-2"><a href="visualiza.html#cb45-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span>
+<span id="cb45-3"><a href="visualiza.html#cb45-3"></a>p_box</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Consulta la ayuda de <code>geom_jitter</code> e incluye las observaciones como puntos superpuestos al diagrama de cajas. Deberías obtener algo como esto:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<ol start="19" style="list-style-type: decimal">
+<li><p>Modifica <code>p_box</code> para que represente también la información relativa al tipo de vehículo (variable <code>class</code>). ¿Puedes identificar el <em>ajuste de posición</em> por defecto de <code>geom_boxplot</code>?</p></li>
+<li><p>Cambia la orientación de los diagramas de cajas de verticales a horizontales. Hint: consulta la documentación de <code>coord_flip</code>.</p></li>
+<li><p>Consulta la documentación de <code>coord_polar</code> y construye un diagrama circular (“de pastel”) de la variable tipo de tracción (<code>drv</code>).</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="resumen" class="section level2">
+<h2><span class="header-section-number">2.5</span> Resumen</h2>
+<p>En las secciones anteriores has asimilado la “gramática estratificada de los gráficos” (<em>The layered grammar of graphics</em>) de <code>ggplot</code>. Aunque no lo parezca ahora, ya eres capaz de construir cualquier tipo de gráfico en 2D. Resumiendo, dispones de un modelo con 7 parámetros a definir (no necesitas definirlos todos) y tantas capas de <strong>geoms</strong> como necesites:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="visualiza.html#cb46-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb46-2"><a href="visualiza.html#cb46-2"></a><span class="st">  </span><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(</span>
+<span id="cb46-3"><a href="visualiza.html#cb46-3"></a>     <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>),</span>
+<span id="cb46-4"><a href="visualiza.html#cb46-4"></a>     <span class="dt">stat =</span> <span class="op">&lt;</span>STAT<span class="op">&gt;</span>, </span>
+<span id="cb46-5"><a href="visualiza.html#cb46-5"></a>     <span class="dt">position =</span> <span class="op">&lt;</span>POSITION<span class="op">&gt;</span></span>
+<span id="cb46-6"><a href="visualiza.html#cb46-6"></a><span class="st">  </span>) <span class="op">+</span></span>
+<span id="cb46-7"><a href="visualiza.html#cb46-7"></a><span class="st">  </span><span class="er">&lt;</span>COORDINATE_FUNCTION<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span></span>
+<span id="cb46-8"><a href="visualiza.html#cb46-8"></a><span class="st">  </span><span class="er">&lt;</span>FACET_FUNCTION<span class="op">&gt;</span></span></code></pre></div>
+<p>Finalmente, podemos añadir otros 2 parámetros a este modelo que te permitirán modificar otros elementos necesarios a la hora de “comunicar” con tus gráficos (título, leyenda, etiquetado de los ejes, escala de los ejes, etc.):</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="visualiza.html#cb47-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb47-2"><a href="visualiza.html#cb47-2"></a><span class="st">  </span><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(</span>
+<span id="cb47-3"><a href="visualiza.html#cb47-3"></a>     <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>),</span>
+<span id="cb47-4"><a href="visualiza.html#cb47-4"></a>     <span class="dt">stat =</span> <span class="op">&lt;</span>STAT<span class="op">&gt;</span>, </span>
+<span id="cb47-5"><a href="visualiza.html#cb47-5"></a>     <span class="dt">position =</span> <span class="op">&lt;</span>POSITION<span class="op">&gt;</span></span>
+<span id="cb47-6"><a href="visualiza.html#cb47-6"></a><span class="st">  </span>) <span class="op">+</span></span>
+<span id="cb47-7"><a href="visualiza.html#cb47-7"></a><span class="st">  </span><span class="er">&lt;</span>COORDINATE_FUNCTION<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span></span>
+<span id="cb47-8"><a href="visualiza.html#cb47-8"></a><span class="st">  </span><span class="er">&lt;</span>FACET_FUNCTION<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span></span>
+<span id="cb47-9"><a href="visualiza.html#cb47-9"></a><span class="st">  </span><span class="er">&lt;</span>SCALE_FUNCTION<span class="op">&gt;</span><span class="st"> </span><span class="op">+</span></span>
+<span id="cb47-10"><a href="visualiza.html#cb47-10"></a><span class="st">  </span><span class="er">&lt;</span>THEME_FUNCTION<span class="op">&gt;</span></span></code></pre></div>
+<div id="ejercicios-6" class="section level4">
+<h4><span class="header-section-number">2.5.0.1</span> Ejercicios</h4>
+<ol start="22" style="list-style-type: decimal">
+<li>Cambia la escala y tema de algunos de los gráficos que has desarrollado. Hint: en el <em>Cheatsheet: Data Visualization with ggplot2</em> tienes un resumen muy completo de las herramientas que necesitas.</li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="transforma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
