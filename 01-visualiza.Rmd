@@ -72,7 +72,25 @@ ggplot(data = mpg) +
 ### Ejercicios
 
 1. Hacer el diagrama de dispersión de `hwy` vs. `cyl` ¿qué crees del gráfico obtenido?
+
+**R/**
+
+```{r}
+ggplot(mpg, aes(x = cyl, y = hwy)) +
+  geom_point()
+```
+
 2. ¿Qué pasa si hacemos el diagrama de `class` vs. `drv`? ¿por qué crees que hay menos puntos?
+
+**R/**
+
+Ambas son categóricas, por tanto, no es un buen plot. 
+
+```{r}
+ggplot(mpg, aes(x = class, y = drv)) +
+  geom_point()
+```
+
 
 ### Cambiando la *estética*
 
@@ -93,10 +111,59 @@ ggplot(data = mpg) +
 #### Ejercicios
 
 3. ¿Qué pasa si en lugar de `color`, usamos `alpha`, `shape` o `size`?
+
+**R/**
+
+Explora con algún ejemplo en el que uses `color` y cambia a `alpha`, `shape` o `size`...
+
 4. ¿Qué pasa al asignar una variable continua (e.g. `cty`) a `color`, `size` o `shape`? Hint: para el caso de `shape` visita <https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point-1>.
+
+
+**R/**
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, colour = cty)) +
+  geom_point()
+
+ggplot(mpg, aes(x = displ, y = hwy, size = cty)) +
+  geom_point()
+
+```
+
+`shape` no funcionará porque no podemos pasarle un argumento continuo. Intenta con este ejemplo:
+
+```{r,eval=FALSE}
+ggplot(mpg, aes(x = displ, y = hwy, shape = cty)) +
+  geom_point()
+```
+
+
 5. ¿Qué pasa si asignamos la misma variable continua (e.g. `cty`) a `color` y `size` a la vez?
+
+**R/**
+
+Simplemente estaremos construyendo un plot con información redundante:
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, colour = cty, size = cty)) +
+  geom_point()
+```
+
+
 6. Visita la ayuda `?geom_point` (también <https://ggplot2.tidyverse.org/reference/geom_point.html>) y explora los diferentes *aesthetic* que puedes especificar.
+
+
 7. Agrega al *aesthetic* de tu plot la expresión `colour = displ < 5`. Esto ya no es una variable si no una expresión que devuelve un booleano. ¿Puedes explicar el plot resultante?
+
+**R/**
+
+Es equivalente a agregar una nueva etiqueta que diferencia las observaciones que cumplen ` displ < 5` y ` displ >= 5`
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, colour = displ < 5)) +
+  geom_point()
+```
+
 
 ### Las *facetas*
 
@@ -127,6 +194,10 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = drv, y = cyl)) 
 ```
 
+**R/**
+
+No hay observaciones con todas las combinaciones de posibles niveles de ambas variables categóricas.
+
 9. Explica el uso del punto `.` en los siguientes plots:
 ```{r, out.width="50%", fig.show='hold'}
 ggplot(data = mpg) + 
@@ -138,9 +209,33 @@ ggplot(data = mpg) +
   facet_grid(. ~ cyl)
 ```
 
+**R/**
+
+El primero arregla los plots por filas y el segundo por columnas.
+
 10. ¿Para qué sirven los argumentos `nrow` y `ncol`? ¿En qué tipo de facetas se pueden usar? Explora la ayuda `facet_wrap` y `facet_grid` o el manual en <https://ggplot2.tidyverse.org/reference/index.html>.
 
+```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~class, nrow = 4)
+```
+
+**R/**
+
+Ajusta el número de filas en las que arreglamos los plots.
+
 11. ¿Qué pasa si usamos una variable continua para hacer facetas? Intenta hacerlo con `cty`.
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  facet_grid(. ~ cty)
+```
+
+**R/**
+
+No es muy útil tener tantos paneles. En este caso, los plots son medianamente interpretables porque la variable `cty` tiene pocos valores únicos.
 
 ### Objetos geométricos **geoms**
 
@@ -210,18 +305,36 @@ ggplot() +
   geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))
 ```
 
+**R/**
+
+Ninguna diferencia, aunque podemos hacerlo más legible:
+
+```{r, eval = FALSE}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point() +
+  geom_smooth()
+```
+
+
 De acuerdo a tus impresiones, reescribe el código que hace el suavizado solo para los vehículos `suv`. El objetivo es lograr un código legible y sin argumentos innecesarios. ¿Qué produce la instrucción `se = FALSE`?
 
-```{r, eval=F, include=F}
+**R/**
+
+```{r, eval=T, include=T}
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = class)) + 
   geom_point() + 
   geom_smooth(data = filter(mpg, class == "suv"),
               se = FALSE)
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = class)) + 
+  geom_point() + 
+  geom_smooth(data = filter(mpg, class == "suv"),
+              se = TRUE)
 ```
 
 13. Reproducir los siguientes gráficos:
 
-```{r, out.width="50%", fig.show='hold', echo=FALSE, message=FALSE}
+```{r, out.width="50%", fig.show='hold', echo=TRUE, message=FALSE}
 ggplot(mpg, aes(x = displ, y = hwy)) +
   geom_point() +
   geom_smooth(se = FALSE, )
@@ -253,6 +366,10 @@ ggplot(mpg, aes(x = displ, y = hwy)) +
              size = 2, 
              stroke = 3)
 ```
+
+**R/**
+
+Códigos incluidos con los gráficos.
 
 ### Transformaciones estadísticas
 
@@ -303,14 +420,14 @@ ggplot(data = diamonds) +
 
 14. ¿Qué hace el siguiente código?
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, y = stat(prop), group = 1))
 ```
 
 15. Interpreta los resultados de ejecutar:
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 ggplot(data = diamonds) + 
   stat_summary(
     mapping = aes(x = cut, y = depth),
@@ -320,7 +437,18 @@ ggplot(data = diamonds) +
   )
 ```
 
+**R/**
+
+Te muestran la profundidad mínima, máxima y la mediana. No es tan útil como un diagrama de cajas (boxplot).
+
 16. ¿Cuál es la diferencia entre `geom_bar` y `geom_col`? ¿Qué datos necesitaríamos introducir en cada función para obtener el mismo diagrama de barras en cada caso?
+
+**R/**
+
+* `geom_col()` tiene un "stat" diferente a `geom_bar()` 
+* El stat por defecto de `geom_col()` es `stat_identity()`
+* El stat por defecto de `geom_bar()` es `stat_count()`
+
 
 ### Ajuste de posición y sistemas de coordenadas
 
@@ -367,10 +495,25 @@ p + geom_point() +
 
 17. Un tercer parámetro de posición para los diagramas de barras es `position = "identity"`. Modifica el ajuste de posición del siguiente código y compara la idoneidad del mismo con el obtenido para `position = "dodge"`. Hint: considera añadir algo de transparencia (e.g. `alpha = 0.5`) o quitar el relleno por completo (i.e. `fill = NA`).
 
-```{r, eval = F}
+**R/**
+
+```{r, eval = T}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity))
 ```
+
+
+```{r, eval = T}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, color = clarity), 
+           alpha = 0.5, fill = NA)
+```
+
+```{r, eval = T}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = "dodge")
+```
+
 
 18. Los diagramas de cajas se logran con `geom_boxplot`. Este tipo de gráficos permiten comparar las distribuciones de una variable continua para diferentes grupos o clases. Por ejemplo, para los datos `mpg` podemos comparar la distribución del consumo de acuerdo al tipo de tracción:
 
@@ -382,7 +525,9 @@ p_box
 
 Consulta la ayuda de `geom_jitter` e incluye las observaciones como puntos superpuestos al diagrama de cajas. Deberías obtener algo como esto:
 
-```{r, eval=TRUE, echo=FALSE}
+**R/**
+
+```{r, eval=TRUE, echo=TRUE}
 ggplot(data = mpg, aes(x = drv, y = hwy)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(alpha = 0.3, width = 0.1) + 
@@ -391,15 +536,36 @@ ggplot(data = mpg, aes(x = drv, y = hwy)) +
 
 19. Modifica `p_box` para que represente también la información relativa al tipo de vehículo (variable `class`). ¿Puedes identificar el *ajuste de posición* por defecto de `geom_boxplot`?
 
-```{r, eval=FALSE, echo=FALSE}
+**R/**
+
+```{r, eval=TRUE, echo=TRUE}
 p_box2 <- ggplot(data = mpg, aes(x = drv, y = hwy, color = class)) +
   geom_boxplot() 
 p_box2
 ```
 
+Es "dodge2", que es un shortcut para "position_dodge2". Lo que hace es mover las cajas en la horizontal (sin afectar la vertical), para evitar el solapamiento de cajas.
+
 20. Cambia la orientación de los diagramas de cajas de verticales a horizontales. Hint: consulta la documentación de `coord_flip`.
 
+**R/**
+
+```{r, eval=TRUE, echo=TRUE}
+p_box2 <- ggplot(data = mpg, aes(x = drv, y = hwy, color = class)) +
+  geom_boxplot() +coord_flip()
+p_box2
+```
+
 21. Consulta la documentación de `coord_polar` y construye un diagrama circular ("de pastel") de la variable tipo de tracción (`drv`).
+
+**R/**
+
+```{r}
+pie <- ggplot(mpg, aes(x = factor(1), fill = factor(drv))) +
+ geom_bar(width = 1)
+pie + coord_polar(theta = "y")
+```
+
 
 ## Resumen
 

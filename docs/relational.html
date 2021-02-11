@@ -32,6 +32,7 @@
   
 <link rel="prev" href="tidy.html"/>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,22 +50,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +83,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -129,14 +128,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i><b>1.1</b> Referencias</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="visualiza.html"><a href="visualiza.html"><i class="fa fa-check"></i><b>2</b> Visualización</a><ul>
+<li class="chapter" data-level="2" data-path="visualiza.html"><a href="visualiza.html"><i class="fa fa-check"></i><b>2</b> Visualización</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="visualiza.html"><a href="visualiza.html#paquetes"><i class="fa fa-check"></i><b>2.1</b> Paquetes</a></li>
 <li class="chapter" data-level="2.2" data-path="visualiza.html"><a href="visualiza.html#datos"><i class="fa fa-check"></i><b>2.2</b> Datos</a></li>
 <li class="chapter" data-level="2.3" data-path="visualiza.html"><a href="visualiza.html#visualización-con-r-base"><i class="fa fa-check"></i><b>2.3</b> Visualización con R base</a></li>
-<li class="chapter" data-level="2.4" data-path="visualiza.html"><a href="visualiza.html#visualización-con-ggplot2"><i class="fa fa-check"></i><b>2.4</b> Visualización con <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.4" data-path="visualiza.html"><a href="visualiza.html#visualización-con-ggplot2"><i class="fa fa-check"></i><b>2.4</b> Visualización con <code>ggplot2</code></a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="visualiza.html"><a href="visualiza.html#ejercicios"><i class="fa fa-check"></i><b>2.4.1</b> Ejercicios</a></li>
 <li class="chapter" data-level="2.4.2" data-path="visualiza.html"><a href="visualiza.html#cambiando-la-estética"><i class="fa fa-check"></i><b>2.4.2</b> Cambiando la <em>estética</em></a></li>
 <li class="chapter" data-level="2.4.3" data-path="visualiza.html"><a href="visualiza.html#las-facetas"><i class="fa fa-check"></i><b>2.4.3</b> Las <em>facetas</em></a></li>
@@ -146,9 +148,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="visualiza.html"><a href="visualiza.html#resumen"><i class="fa fa-check"></i><b>2.5</b> Resumen</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="transforma.html"><a href="transforma.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a><ul>
+<li class="chapter" data-level="3" data-path="transforma.html"><a href="transforma.html"><i class="fa fa-check"></i><b>3</b> Transformaciones</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="transforma.html"><a href="transforma.html#datos-1"><i class="fa fa-check"></i><b>3.1</b> Datos</a></li>
-<li class="chapter" data-level="3.2" data-path="transforma.html"><a href="transforma.html#el-paquete-dplyr"><i class="fa fa-check"></i><b>3.2</b> El paquete <code>dplyr</code></a><ul>
+<li class="chapter" data-level="3.2" data-path="transforma.html"><a href="transforma.html#el-paquete-dplyr"><i class="fa fa-check"></i><b>3.2</b> El paquete <code>dplyr</code></a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="transforma.html"><a href="transforma.html#filtrar-filas"><i class="fa fa-check"></i><b>3.2.1</b> Filtrar filas</a></li>
 <li class="chapter" data-level="3.2.2" data-path="transforma.html"><a href="transforma.html#rerodenar-filas"><i class="fa fa-check"></i><b>3.2.2</b> Rerodenar filas</a></li>
 <li class="chapter" data-level="3.2.3" data-path="transforma.html"><a href="transforma.html#seleccionar-variables"><i class="fa fa-check"></i><b>3.2.3</b> Seleccionar variables</a></li>
@@ -156,30 +160,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.5" data-path="transforma.html"><a href="transforma.html#resumir-variables"><i class="fa fa-check"></i><b>3.2.5</b> Resumir variables</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>4</b> Tidy</a><ul>
+<li class="chapter" data-level="4" data-path="tidy.html"><a href="tidy.html"><i class="fa fa-check"></i><b>4</b> Tidy</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="tidy.html"><a href="tidy.html#datos-2"><i class="fa fa-check"></i><b>4.1</b> Datos</a></li>
-<li class="chapter" data-level="4.2" data-path="tidy.html"><a href="tidy.html#pivotar"><i class="fa fa-check"></i><b>4.2</b> Pivotar</a><ul>
+<li class="chapter" data-level="4.2" data-path="tidy.html"><a href="tidy.html#pivotar"><i class="fa fa-check"></i><b>4.2</b> Pivotar</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="tidy.html"><a href="tidy.html#pivot-longer"><i class="fa fa-check"></i><b>4.2.1</b> <em>Pivot longer</em></a></li>
 <li class="chapter" data-level="4.2.2" data-path="tidy.html"><a href="tidy.html#pivot-wider"><i class="fa fa-check"></i><b>4.2.2</b> <em>Pivot wider</em></a></li>
 <li class="chapter" data-level="4.2.3" data-path="tidy.html"><a href="tidy.html#ejercicios-13"><i class="fa fa-check"></i><b>4.2.3</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="tidy.html"><a href="tidy.html#separar-y-unir"><i class="fa fa-check"></i><b>4.3</b> Separar y unir</a><ul>
+<li class="chapter" data-level="4.3" data-path="tidy.html"><a href="tidy.html#separar-y-unir"><i class="fa fa-check"></i><b>4.3</b> Separar y unir</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="tidy.html"><a href="tidy.html#ejercicios-14"><i class="fa fa-check"></i><b>4.3.1</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="tidy.html"><a href="tidy.html#lidiar-con-los-datos-faltantes"><i class="fa fa-check"></i><b>4.4</b> Lidiar con los datos faltantes</a><ul>
+<li class="chapter" data-level="4.4" data-path="tidy.html"><a href="tidy.html#lidiar-con-los-datos-faltantes"><i class="fa fa-check"></i><b>4.4</b> Lidiar con los datos faltantes</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="tidy.html"><a href="tidy.html#ejercicios-15"><i class="fa fa-check"></i><b>4.4.1</b> Ejercicios</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="tidy.html"><a href="tidy.html#case-study"><i class="fa fa-check"></i><b>4.5</b> Case study</a><ul>
+<li class="chapter" data-level="4.5" data-path="tidy.html"><a href="tidy.html#case-study"><i class="fa fa-check"></i><b>4.5</b> Case study</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="tidy.html"><a href="tidy.html#ejercicios-16"><i class="fa fa-check"></i><b>4.5.1</b> Ejercicios</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="relational.html"><a href="relational.html"><i class="fa fa-check"></i><b>5</b> Relational Data</a><ul>
+<li class="chapter" data-level="5" data-path="relational.html"><a href="relational.html"><i class="fa fa-check"></i><b>5</b> Relational Data</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="relational.html"><a href="relational.html#datos-3"><i class="fa fa-check"></i><b>5.1</b> Datos</a></li>
 <li class="chapter" data-level="5.2" data-path="relational.html"><a href="relational.html#keys"><i class="fa fa-check"></i><b>5.2</b> Keys</a></li>
-<li class="chapter" data-level="5.3" data-path="relational.html"><a href="relational.html#mutating-joins"><i class="fa fa-check"></i><b>5.3</b> Mutating Joins</a><ul>
+<li class="chapter" data-level="5.3" data-path="relational.html"><a href="relational.html#mutating-joins"><i class="fa fa-check"></i><b>5.3</b> Mutating Joins</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="relational.html"><a href="relational.html#ejercicios-17"><i class="fa fa-check"></i><b>5.3.1</b> Ejercicios:</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="relational.html"><a href="relational.html#filtering-joins"><i class="fa fa-check"></i><b>5.4</b> Filtering Joins</a><ul>
+<li class="chapter" data-level="5.4" data-path="relational.html"><a href="relational.html#filtering-joins"><i class="fa fa-check"></i><b>5.4</b> Filtering Joins</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="relational.html"><a href="relational.html#ejercicios-18"><i class="fa fa-check"></i><b>5.4.1</b> Ejercicios</a></li>
 </ul></li>
 </ul></li>
@@ -200,14 +212,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relational" class="section level1">
+<div id="relational" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Relational Data</h1>
-<div id="datos-3" class="section level2">
+<div id="datos-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Datos</h2>
 <p>Vamos a trabajar con los datos de <code>nycflights13</code>: <code>airlines</code>, <code>airports</code>, <code>planes</code>, <code>weather</code></p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="relational.html#cb165-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb165-2"><a href="relational.html#cb165-2"></a><span class="kw">library</span>(nycflights13)</span>
-<span id="cb165-3"><a href="relational.html#cb165-3"></a><span class="kw">data</span>(<span class="st">&quot;airlines&quot;</span>, <span class="st">&quot;airports&quot;</span>, <span class="st">&quot;planes&quot;</span>, <span class="st">&quot;weather&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="relational.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb183-2"><a href="relational.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb183-3"><a href="relational.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;airlines&quot;</span>, <span class="st">&quot;airports&quot;</span>, <span class="st">&quot;planes&quot;</span>, <span class="st">&quot;weather&quot;</span>)</span></code></pre></div>
 <p>Las relaciones entre ellos se resumen en:</p>
 <ul>
 <li><code>flights</code> con <code>planes</code> a través de la variable <code>tailnum</code>.</li>
@@ -216,66 +228,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>flights</code> con <code>weather</code> a través de las variables <code>origin</code> (lugar) y <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code> (fecha + hora).</li>
 </ul>
 </div>
-<div id="keys" class="section level2">
+<div id="keys" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Keys</h2>
 <p>La variable <code>tailnum</code> es un identificador único de cada avión para los datos <code>planes</code>:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="relational.html#cb166-1"></a>planes <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb166-2"><a href="relational.html#cb166-2"></a><span class="st">  </span><span class="kw">count</span>(tailnum) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb166-3"><a href="relational.html#cb166-3"></a><span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="relational.html#cb184-1" aria-hidden="true" tabindex="-1"></a>planes <span class="sc">%&gt;%</span> </span>
+<span id="cb184-2"><a href="relational.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(tailnum) <span class="sc">%&gt;%</span> </span>
+<span id="cb184-3"><a href="relational.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 x 2
 ## # ... with 2 variables: tailnum &lt;chr&gt;, n &lt;int&gt;</code></pre>
 <p>Algunas tablas no tienen un <em>key</em> primario. ¿Qué crees de estos casos? ¿Tienen sentido? ¿Se te ocurre alguna otra combinación de variables que pueda identificar de forma única a cada observación?</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="relational.html#cb168-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb168-2"><a href="relational.html#cb168-2"></a><span class="st">  </span><span class="kw">count</span>(year, month, day, flight) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb168-3"><a href="relational.html#cb168-3"></a><span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span>
-<span id="cb168-4"><a href="relational.html#cb168-4"></a></span>
-<span id="cb168-5"><a href="relational.html#cb168-5"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb168-6"><a href="relational.html#cb168-6"></a><span class="st">  </span><span class="kw">count</span>(year, month, day, tailnum) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb168-7"><a href="relational.html#cb168-7"></a><span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="relational.html#cb186-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb186-2"><a href="relational.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year, month, day, flight) <span class="sc">%&gt;%</span> </span>
+<span id="cb186-3"><a href="relational.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb186-4"><a href="relational.html#cb186-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-5"><a href="relational.html#cb186-5" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb186-6"><a href="relational.html#cb186-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(year, month, day, tailnum) <span class="sc">%&gt;%</span> </span>
+<span id="cb186-7"><a href="relational.html#cb186-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>Recuerda que podemos añadir una <em>surrogate key</em>:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="relational.html#cb169-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb169-2"><a href="relational.html#cb169-2"></a><span class="st">  </span><span class="kw">arrange</span>(year, month, day, sched_dep_time, carrier, flight) <span class="op">%&gt;%</span></span>
-<span id="cb169-3"><a href="relational.html#cb169-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">flight_id =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></span>
-<span id="cb169-4"><a href="relational.html#cb169-4"></a><span class="st">  </span><span class="kw">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="relational.html#cb187-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb187-2"><a href="relational.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year, month, day, sched_dep_time, carrier, flight) <span class="sc">%&gt;%</span></span>
+<span id="cb187-3"><a href="relational.html#cb187-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flight_id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb187-4"><a href="relational.html#cb187-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
 </div>
-<div id="mutating-joins" class="section level2">
+<div id="mutating-joins" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Mutating Joins</h2>
 <p>Primero vamos a reducir un poco la cantidad de columnas de <code>flights</code> para notar las columnas añadidas:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="relational.html#cb170-1"></a>flights2 &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb170-2"><a href="relational.html#cb170-2"></a><span class="st">  </span><span class="kw">select</span>(year<span class="op">:</span>day, hour, origin, dest, tailnum, carrier)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="relational.html#cb188-1" aria-hidden="true" tabindex="-1"></a>flights2 <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb188-2"><a href="relational.html#cb188-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year<span class="sc">:</span>day, hour, origin, dest, tailnum, carrier)</span></code></pre></div>
 <p>Veamos cómo definir la key/clave de referencia:</p>
 <ul>
 <li>Por defecto: <code>by = NULL</code> usa las variables comunes a ambas tablas:</li>
 </ul>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="relational.html#cb171-1"></a>flights2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb171-2"><a href="relational.html#cb171-2"></a><span class="st">  </span><span class="kw">left_join</span>(weather)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="relational.html#cb189-1" aria-hidden="true" tabindex="-1"></a>flights2 <span class="sc">%&gt;%</span> </span>
+<span id="cb189-2"><a href="relational.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(weather)</span></code></pre></div>
 <ul>
 <li>Podemos introducir un vector de caracteres <code>by = x</code>, donde <code>x</code> es alguna de las columnas en común. A continuación, lo hacemos para <code>by = tailnum</code>. ¿Qué son <code>year.x</code> y <code>year.y</code>?</li>
 </ul>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="relational.html#cb172-1"></a>flights2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb172-2"><a href="relational.html#cb172-2"></a><span class="st">  </span><span class="kw">left_join</span>(planes, <span class="dt">by =</span> <span class="st">&quot;tailnum&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="relational.html#cb190-1" aria-hidden="true" tabindex="-1"></a>flights2 <span class="sc">%&gt;%</span> </span>
+<span id="cb190-2"><a href="relational.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(planes, <span class="at">by =</span> <span class="st">&quot;tailnum&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Podemos introducir un vector de caracteres con nombre: <code>by = c("a" = "b")</code>. Esto empareja las variables <code>a</code> (de la tabla <code>x</code>) y <code>b</code> (de la tabla <code>y</code>). Por ejemplo, para combinar <code>flights</code> y <code>airports</code> necesitamos combinar el destino (<code>dest</code>) u origen (<code>origin</code>) en <code>fligths</code> con el código de cada aeropuerto (<code>faa</code>) en <code>airports</code>:</li>
 </ul>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="relational.html#cb173-1"></a>flights2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb173-2"><a href="relational.html#cb173-2"></a><span class="st">  </span><span class="kw">left_join</span>(airports, <span class="kw">c</span>(<span class="st">&quot;dest&quot;</span> =<span class="st"> &quot;faa&quot;</span>))</span>
-<span id="cb173-3"><a href="relational.html#cb173-3"></a></span>
-<span id="cb173-4"><a href="relational.html#cb173-4"></a>flights2 <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb173-5"><a href="relational.html#cb173-5"></a><span class="st">  </span><span class="kw">left_join</span>(airports, <span class="kw">c</span>(<span class="st">&quot;origin&quot;</span> =<span class="st"> &quot;faa&quot;</span>))</span></code></pre></div>
-<div id="ejercicios-17" class="section level3">
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="relational.html#cb191-1" aria-hidden="true" tabindex="-1"></a>flights2 <span class="sc">%&gt;%</span> </span>
+<span id="cb191-2"><a href="relational.html#cb191-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airports, <span class="fu">c</span>(<span class="st">&quot;dest&quot;</span> <span class="ot">=</span> <span class="st">&quot;faa&quot;</span>))</span>
+<span id="cb191-3"><a href="relational.html#cb191-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-4"><a href="relational.html#cb191-4" aria-hidden="true" tabindex="-1"></a>flights2 <span class="sc">%&gt;%</span> </span>
+<span id="cb191-5"><a href="relational.html#cb191-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(airports, <span class="fu">c</span>(<span class="st">&quot;origin&quot;</span> <span class="ot">=</span> <span class="st">&quot;faa&quot;</span>))</span></code></pre></div>
+<div id="ejercicios-17" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Ejercicios:</h3>
 <ol style="list-style-type: decimal">
 <li>Añadir latitud y longitud (<code>lat</code> y <code>lon</code>) del origen y destino a la tabla <code>flights</code>.</li>
 </ol>
 </div>
 </div>
-<div id="filtering-joins" class="section level2">
+<div id="filtering-joins" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Filtering Joins</h2>
 <p>Los semi-joins son útiles cuando hacemos un resumen de los datos y luego queremos emparejar estos resultados con las observaciones originales. Por ejemplo, si calculamos los 10 destinos más populares:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="relational.html#cb174-1"></a>top_dest &lt;-<span class="st"> </span>flights <span class="op">%&gt;%</span></span>
-<span id="cb174-2"><a href="relational.html#cb174-2"></a><span class="st">  </span><span class="kw">count</span>(dest, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
-<span id="cb174-3"><a href="relational.html#cb174-3"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">10</span>)</span>
-<span id="cb174-4"><a href="relational.html#cb174-4"></a>top_dest</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="relational.html#cb192-1" aria-hidden="true" tabindex="-1"></a>top_dest <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
+<span id="cb192-2"><a href="relational.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(dest, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb192-3"><a href="relational.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb192-4"><a href="relational.html#cb192-4" aria-hidden="true" tabindex="-1"></a>top_dest</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    dest      n
 ##    &lt;chr&gt; &lt;int&gt;
@@ -290,19 +302,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9 MIA   11728
 ## 10 DCA    9705</code></pre>
 <p>… y luego queremos encontrar todos los vuelos (en <code>flights</code>) que tuvieron este destino:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="relational.html#cb176-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb176-2"><a href="relational.html#cb176-2"></a><span class="st">  </span><span class="kw">semi_join</span>(top_dest)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="relational.html#cb194-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb194-2"><a href="relational.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(top_dest)</span></code></pre></div>
 <p>Los anti-joins son útiles para diagnosticar las discrepancias en las uniones. Por ejemplo, en <code>planes</code> hay aviones que no aparecen en <code>flights</code>:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="relational.html#cb177-1"></a>flights <span class="op">%&gt;%</span></span>
-<span id="cb177-2"><a href="relational.html#cb177-2"></a><span class="st">  </span><span class="kw">anti_join</span>(planes, <span class="dt">by =</span> <span class="st">&quot;tailnum&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb177-3"><a href="relational.html#cb177-3"></a><span class="st">  </span><span class="kw">count</span>(tailnum, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<div id="ejercicios-18" class="section level3">
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="relational.html#cb195-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb195-2"><a href="relational.html#cb195-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(planes, <span class="at">by =</span> <span class="st">&quot;tailnum&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb195-3"><a href="relational.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(tailnum, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="ejercicios-18" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Ejercicios</h3>
 <ol start="2" style="list-style-type: decimal">
 <li>Encuentra otra forma de obtener el mismo resultado que:</li>
 </ol>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="relational.html#cb178-1"></a>flights <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb178-2"><a href="relational.html#cb178-2"></a><span class="st">  </span><span class="kw">semi_join</span>(top_dest)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="relational.html#cb196-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb196-2"><a href="relational.html#cb196-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(top_dest)</span></code></pre></div>
 <p>sin usar <code>semi_join()</code>. Hint: Filtrar los destinos de <code>flights</code> de acuerdo a los 10 más populares.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Filtra <code>flights</code> para que solo recoja los datos de aquellos aviones que han volado al menos 100 veces.</li>

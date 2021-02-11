@@ -163,7 +163,7 @@ flights %>%
 vars <- c("year", "month", "day", "dep_delay", "arr_delay")
 ```
 
-14. ¿QUé pasa con el siguiente código? ¿Debería seleccionar todas esas variables?
+14. ¿Qué pasa con el siguiente código? ¿Debería seleccionar todas esas variables?
 
 ```{r}
 select(flights, contains("TiMe"))

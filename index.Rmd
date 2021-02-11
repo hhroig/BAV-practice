@@ -6,12 +6,14 @@ site: bookdown::bookdown_site
 documentclass: book
 output:
   bookdown::gitbook: default
-  #bookdown::pdf_book: default
+  bookdown::pdf_book: default
 ---
 
 # Introducción
 
 Estos son los ejercicios del curso :)
+
+**Estoy incluyendo las respuestas poco a poco... Avisaré cuando haya terminado el proceso.**
 
 Recuerda que tienes disponibles las diapositivas en: <https://hhroig.github.io/BAV-slides/>
 
