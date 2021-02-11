@@ -15,7 +15,18 @@ flights
 
 1. ¿Puedes identificar los tipos de variables?
 
+**R/**
+
+Al imprimir un tibble en la consola, se muestra el tipo de variable debajo de cada columna: `<int>`, `<dbl>`, `<chr>`, etc.
+
 2. ¿Qué información puedes extraer de los datos con la función `summary()`?
+
+**R/**
+
+```{r}
+summary(flights)
+```
+
 
 ## El paquete `dplyr`
 
@@ -69,19 +80,90 @@ Algo interesante de `filter()` es que deja fuera directamente los `NA`s.
    f. Se retrasaron al menos 1hr, pero compesaron 30min en vuelo
    g. Salieron entre medianoche y 6am (inclusive)
 
+**R/**
+
+   a. Se atrasaron más de 2hrs en llegar
+   
+```{r}
+filter(flights, arr_delay >= 120)
+```
+   
+   b. Volaron a Houston (IAH or HOU)
+   
+```{r}
+filter(flights, dest == "IAH" | dest == "HOU")
+```
+   
+   c. Fueron operados por "United", "American" o "Deta"
+   
+```{r}
+filter(flights, carrier %in% c("AA", "DL", "UA"))
+```
+   
+   d. Salieron en el verano (Julio, Agosto y Septiembre)
+   
+```{r}
+filter(flights, month >= 7, month <= 9)
+```
+   
+   e. Llegaron más de 2hrs tarde, pero no salieron tarde
+   
+```{r}
+filter(flights, arr_delay > 120, dep_delay <= 0)
+```
+   
+   f. Se retrasaron al menos 1hr, pero compesaron 30min en vuelo
+   
+```{r}
+filter(flights, dep_delay >= 60, dep_delay - arr_delay > 30)
+```
+   
+   g. Salieron entre medianoche y 6am (inclusive). No 
+   
+```{r}
+# Opción 1:
+filter(flights, dep_time <= 600 | dep_time == 2400)
+
+# Opción 2:
+filter(flights, dep_time %% 2400 <= 600)
+```
+   
+
 4. Busca la ayuda de `between()` e intenta simplificar un poco tus respuestas al ejercicio anterior.
 
+**R/**
+
+La expresión `between(x, left, right)` es equivalente a `x >= left & x <= right`. En el ejercicio "d. Salieron en el verano (Julio, Agosto y Septiembre)", podemos hacer:
+
+```{r}
+filter(flights, between(month, 7, 9))
+```
 
 5. ¿Cuántos vuelos no tienen información sobre `dep_time`? ¿Alguna otra variable tiene datos perdidos? ¿Qué crees que representan en cada caso?
+
+**R/**
+
+Parecen ser vuelos cancelados, también `arr_time` presenta `NA`s en estos casos:
+
+```{r}
+filter(flights, is.na(dep_time))
+```
+
 
 6. ¿Qué crees de los siguientes resultados?
 
 ```{r}
-NA^0
-NA | TRUE
+NA^0 # R/ todo x^0 = 1
+NA | TRUE # R/
 FALSE & NA
 NA * 0
 ```
+**R/**
+* `NA^0` es `0` porque $x^0 = 1$ para todo $x$.
+* `NA | TRUE` es `NA | TRUE` porque si el valor faltante fuera `TRUE`: entonces `TRUE | TRUE == TRUE`. Si el faltante es `FALSE`, entonces `FALSE | TRUE == TRUE`.
+* `FALSE & NA` es `FALSE`. Si el `NA` es `TRUE`: `TRUE & FALSE == FALSE`. Si el `NA` fuera `FALSE`: `FALSE & FALSE == FALSE`.
+* `NA * 0` es `0`, porque tiene en cuenta las indeterminaciones $\pm \infty \times 0$, en cuyo caso el resultdo sería `NaN`. Para cualquier $x\neq \pm \infty$ tendríamos `x * 0 == 0`.
+
 
 ### Rerodenar filas
 
@@ -104,15 +186,52 @@ head(fl_dsc, 7)
 
 7. Si por defecto `arrange()` coloca los `NA` al final, ¿hay alguna forma de colocarlos al inicio? Hint: usa `is.na()`.
 
-```{r, eval=FALSE, echo=FALSE}
+**R/**
+
+```{r, eval=T, echo=T}
 arrange(flights, desc(is.na(dep_time)), dep_time)
 ```
 
-9. Ordena los vuelos para encontrar los que más se retrasaron. Encuentra los que despegaron antes.
+8. Ordena los vuelos para encontrar los que más se retrasaron. 
+
+**R/**
+
+```{r}
+arrange(flights, desc(dep_delay))
+```
+
+
+9. Encuentra los que despegaron antes.
+
+**R/**
+
+```{r}
+arrange(flights, dep_delay)
+```
 
 10. Ordena los vuelos de forma tal que permita encuentra los de mayor velocidad.
 
+**R/**
+
+```{r}
+# Si lo entendemos por tiempo de vuelo:
+head(arrange(flights, air_time))
+
+# Si lo entendemos por velocidad media:
+head(arrange(flights, desc(distance / air_time)))
+```
+
 11. ¿Cuáles son los vuelos que mayor (menor) distancia recorrieron?
+
+**R/**
+
+```{r}
+# Mayor distancia:
+arrange(flights, desc(distance))
+
+# Menor distancia:
+arrange(flights, distance)
+```
 
 
 ### Seleccionar variables
@@ -157,17 +276,44 @@ flights %>%
 
 12. ¿Cuál será la forma más corta de seleccionar: `dep_time`, `dep_delay`, `arr_time`, `arr_delay`?
 
+**R/**
+
+```{r}
+# Opción elegante:
+select(flights, starts_with("dep_"), starts_with("arr_"))
+
+# Menos elegante, pero funcional y corta:
+select(flights, 4, 6, 7, 9)
+```
+
+
 13. Queremos seleccionar las variables indicadas en el vector `vars`. Hint: usar `any_of`.
 
 ```{r}
 vars <- c("year", "month", "day", "dep_delay", "arr_delay")
 ```
 
+**R/**
+
+```{r}
+select(flights, any_of(vars))
+```
+
+
 14. ¿Qué pasa con el siguiente código? ¿Debería seleccionar todas esas variables?
 
 ```{r}
 select(flights, contains("TiMe"))
 ```
+
+**R/**
+
+Para cambiar el resultado, podemos hacer que coincidan también las letras en mayúscula y minúsucula:
+
+```{r}
+select(flights, contains("TiMe", ignore.case = FALSE))
+```
+
 
 ### Crear nuevas variables
 
@@ -200,15 +346,80 @@ flights %>%
 15. Convertir `dep_time` y `sched_dep_time` a minutos transcurridos desde la medianoche. Notar que son variables importantes pero con un formato difícil de trabajar (es complicado hacer operaciones artiméticas con ellos). Sigue las siguientes directrices:
 
   * Una observación de `dep_time` sería por ejemplo `2021` que indica las 20:21hrs (8:21pm).
-  * Para obtener las horas transcurridas dede la medianoche hasta las 20:21hrs tendremos que usar la división entera `2021 %/% 100 == 20`. Luego es fácil obtenir los minutos multiplicando por 60.
+  * Para obtener las horas transcurridas dede la medianoche hasta las 20:21hrs tendremos que usar la división entera `2021 %/% 100 == 20`. Luego es fácil obtener los minutos multiplicando por 60.
   * Los 21 minutos restantes podemos obtenerlos con el resto de la división `2021 %% 100 == 21`... no olvides sumar ambas cantidades
   * Finalmente, tendrás que lidiar con la medianoche, representada con `2400`. Primero, comprueba a cuántos minutos corresponde según nuestras operaciones. Luego, considera calcular el resto de la división por esta cantidad de minutos (siempre que `x <= y` y ambos sean positivos, tendremos `x %% y == 0`).
 
+**R/**
+
+```{r}
+flights_times <- mutate(flights,
+  dep_time_mins = (dep_time %/% 100 * 60 + dep_time %% 100) %% 1440,
+  sched_dep_time_mins = (sched_dep_time %/% 100 * 60 +
+    sched_dep_time %% 100) %% 1440
+)
+select(
+  flights_times, dep_time, dep_time_mins, sched_dep_time,
+  sched_dep_time_mins
+)
+```
+
+
 16. Compara `air_time` con `arr_time - dep_time`. ¿Es necesaria hacer la transformación del ejercicio anterior? ¿Puedes encontrar en cuántos casos `air_time != arr_time - dep_time`? ¿Por qué pasa esto, no deberíamos obtener que el tiempo de vuelo es la diferencia entre la llegada y la salida? 
+
+**R/**
+
+Calculamos primero tiempo de vuelo:
+
+```{r}
+flights_airtime <-
+  mutate(flights,
+    dep_time = (dep_time %/% 100 * 60 + dep_time %% 100) %% 1440,
+    arr_time = (arr_time %/% 100 * 60 + arr_time %% 100) %% 1440,
+    air_time_diff = air_time - arr_time + dep_time
+  )
+```
+
+Pero notamos que `air_time != arr_time - dep_time` lo cual no es intuitivo:
+
+```{r}
+nrow(filter(flights_airtime, air_time_diff != 0))
+```
+
+La relación que sí se cumple es `air_time <= arr_time - dep_time`. El problema es que `air_time` solo cuenta el tiempo desde que desepega hasta que aterriza, sin contar el desplazamiento hasta la pista o el tiempo en alcanzar la velocidad apropiada antes de despegar.
 
 17. ¿Qué relación crees que habrá entre `dep_time`, `sched_dep_time` y `dep_delay`? Encuentra el número de observaciones en las que no se cumple tu hipótesis.
 
+**R/**
+
+Esperaríamos que `dep_time - sched_dep_time == dep_delay`, pero esto no siempre es así:
+
+```{r}
+flights_deptime <-
+  mutate(flights,
+    dep_time_min = (dep_time %/% 100 * 60 + dep_time %% 100) %% 1440,
+    sched_dep_time_min = (sched_dep_time %/% 100 * 60 +
+      sched_dep_time %% 100) %% 1440,
+    dep_delay_diff = dep_delay - dep_time_min + sched_dep_time_min
+  )
+
+filter(flights_deptime, dep_delay_diff != 0)
+```
+
+En este caso, las discrepancias podrían estar debidas a algún error al recoger los datos.
+
 18. Encuentra los 10 vuelos que más se retrasaron.
+
+**R/**
+
+```{r}
+flights_delayed10 <- flights %>%  
+  top_n(10, dep_delay) %>% 
+  arrange(desc(dep_delay)) %>% 
+  select(month, day, carrier, flight, dep_delay) %>% 
+  print()
+```
+
 
 ### Resumir variables
 
@@ -272,7 +483,9 @@ daily %>%
   * Para responder la pregunta tendrás que crear una variable `prop_cancelados` (media) y la media de `dep_delay` o `arr_delay`,
   * Realiza los diagramas de dispersión correspondientes e intenta describir posibles patrones.
 
-```{r, echo=FALSE, eval=FALSE}
+**R/**
+
+```{r, echo=T, eval=T}
 cancelled_per_day <- 
   flights %>%
   mutate(cancelled = (is.na(arr_delay) | is.na(dep_delay))) %>%
@@ -311,7 +524,9 @@ ggplot(cancelled_and_delays) +
   * Resume el tiempo que ha demorado el vuelo (¿es más importante `arr_delay` o `dep_delay`?),
   * Reordena adecuadamente.
 
-```{r, echo=FALSE, eval=FALSE}
+**R/**
+
+```{r, echo=T, eval=T}
 flights %>%
   group_by(hour) %>%
   summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%

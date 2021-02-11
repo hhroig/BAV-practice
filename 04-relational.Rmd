@@ -89,7 +89,9 @@ flights2 %>%
 
 1. Añadir latitud y longitud (`lat` y `lon`) del origen y destino a la tabla `flights`.
 
-```{r, eval=FALSE, echo=FALSE}
+**R/**
+
+```{r, eval=T, echo=T}
 airport_locations <- airports %>%
   select(faa, lat, lon)
 
@@ -105,7 +107,7 @@ flights %>%
   )
 ```
 
-```{r, eval=FALSE, echo=FALSE}
+```{r, eval=T, echo=T}
 airport_locations <- airports %>%
   select(faa, lat, lon)
 
@@ -119,8 +121,8 @@ flights %>%
     airport_locations,
     by = c("dest" = "faa"),
     suffix = c("_origin", "_dest")
-    # existing lat and lon variables in tibble gain the _origin suffix
-    # new lat and lon variables are given _dest suffix
+    # las variables lat y lon existentes en el tibble toman el sufijo _origin
+    # las nuevas lat y lon tendrán el sufijo _dest
   )
 ```
 
@@ -160,14 +162,18 @@ flights %>%
 ```
 sin usar `semi_join()`. Hint: Filtrar los destinos de `flights` de acuerdo a los 10 más populares.
 
-```{r, eval=FALSE, echo=FALSE}
+**R/**
+
+```{r, eval=T, echo=T}
 flights %>% 
   filter(dest %in% top_dest$dest)
 ```
 
 3. Filtra `flights` para que solo recoja los datos de aquellos aviones que han volado al menos 100 veces.
 
-```{r, eval = FALSE, echo=FALSE}
+**R/**
+
+```{r, eval = T, echo=T}
 # usando semi-join
 planes_gte100 <- flights %>%
   filter(!is.na(tailnum)) %>%
