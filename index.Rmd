@@ -13,7 +13,7 @@ output:
 
 Estos son los ejercicios del curso :)
 
-**Estoy incluyendo las respuestas poco a poco... Avisaré cuando haya terminado el proceso.**
+**¡Esta versión incluye las respuestas!**
 
 Recuerda que tienes disponibles las diapositivas en: <https://hhroig.github.io/BAV-slides/>
 
